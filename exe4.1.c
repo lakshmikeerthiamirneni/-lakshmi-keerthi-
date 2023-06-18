@@ -1,31 +1,31 @@
 #include<stdio.h>
+#include<math.h>
+int revarray(int arr[],int n);
 
 int main(){
     int arr[20],i,n;
-    printf("enter the size of array:");
-    scanf("%d", &n);
-    printf("enter the array elements");
+    printf("enter the size of array: ");
+    scanf("%d",&n);
+    printf("enter the elements of the array :"); 
     for(i=0;i<n;i++){
-        scanf("%d", &arr[i]);
+        scanf("%d",&arr[i]);
     }
-    // now to find min and max
-    int j , min=arr[0], max=arr[0];
-    for(j=0;j < n-1;j++){
-        if (arr[j] > arr[j+1]){
-            min=arr[j+1];
-            max=arr[j];
-        }
-        else{
-            min=arr[j];
-            max=arr[j+1];
-        }
-       
+    revarray(arr,n);
+    printf("the reverse is:");
+    for(i=0;i<n;i++){
+        printf("%d",arr[i]);
     }
-    if (min != max){
-    printf("the max in array is: %d",max);
-    printf("the min in array is: %d",min);
+
+}
+
+int revarray(int arr[],int n){
+    int start=0;
+    int end = n-1;
+    while(start < end){
+        int temp = arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
     }
-    else 
-     printf("all are equal");
-  return 0;
 }

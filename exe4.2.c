@@ -1,25 +1,32 @@
 #include<stdio.h>
-int calsum(int arr[],int len);
 
 int main(){
-    int arr[5],k,n;
-    printf("enter the array size");
-    scanf("%d",&n);
-    printf("enter the array elements:");
-    for(k=0;k < n ;k++){
-    scanf("%d",&arr[k]);
+    int arr[20],i,n;
+    printf("enter the size of array:");
+    scanf("%d", &n);
+    printf("enter the array elements");
+    for(i=0;i<n;i++){
+        scanf("%d", &arr[i]);
     }
-    int sum = calsum(arr,n);
-    float avg = (float)sum/n;
-    printf("sum is : %d", sum);
-    printf("avg is : %.2f", avg);
-}
-
-int calsum(int arr[],int n){
-    int sum =0,i;
-    for (i=0;i<n;i++){
-        sum = sum + arr[i]; 
+    // now to find min and max
+    int j , min=arr[0], max=arr[0];
+    for(j=0;j < n-1;j++){
+        if (arr[j] > arr[j+1]){
+            min=arr[j+1];
+            max=arr[j];
+        }
+        else{
+            min=arr[j];
+            max=arr[j+1];
+        }
+       
     }
-    return sum;
+    if (min != max){
+    printf("the max in array is: %d",max);
+    printf("the min in array is: %d",min);
+    }
+    else 
+     printf("all are equal");
+  return 0;
 }
 
