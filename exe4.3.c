@@ -1,24 +1,24 @@
-#include<stdio.h>
-int calsum(int arr[],int len);
-
-int main(){
-    int arr[5],k,n;
-    printf("enter the array size");
-    scanf("%d",&n);
-    printf("enter the array elements:");
-    for(k=0;k < n ;k++){
-    scanf("%d",&arr[k]);
+#include <stdio.h>
+int main() {
+    int size, i, temp;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int array[size]; 
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < size; i++) {
+        scanf("%d", &array[i]);
+    }  
+    // Reversing the array
+    for (i = 0; i < size / 2; i++) {
+        temp = array[i];
+        array[i] = array[size - i - 1];
+        array[size - i - 1] = temp;
     }
-    int sum = calsum(arr,n);
-    float avg = (float)sum/n;
-    printf("sum is : %d", sum);
-    printf("avg is : %.2f", avg);
-}
-
-int calsum(int arr[],int n){
-    int sum =0,i;
-    for (i=0;i<n;i++){
-        sum = sum + arr[i]; 
+    printf("Reversed arra is :\n");
+    for (i = 0; i < size; i++) {
+        printf("%d ", array[i]);
     }
-    return sum;
+    printf("\n");
+    
+    return 0;
 }

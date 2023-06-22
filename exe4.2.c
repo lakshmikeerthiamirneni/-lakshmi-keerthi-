@@ -1,32 +1,25 @@
-#include<stdio.h>
-
-int main(){
-    int arr[20],i,n;
-    printf("enter the size of array:");
+#include <stdio.h>
+int main() {
+    int n, i;
+    printf("Enter the size of the array: ");
     scanf("%d", &n);
-    printf("enter the array elements");
-    for(i=0;i<n;i++){
-        scanf("%d", &arr[i]);
+    int array[n];
+    printf("Enter the elements of the array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &array[i]);
     }
-    // now to find min and max
-    int j , min=arr[0], max=arr[0];
-    for(j=0;j < n-1;j++){
-        if (arr[j] > arr[j+1]){
-            min=arr[j+1];
-            max=arr[j];
+    int min = array[0];
+    int max = array[0];  
+    for (i = 1; i < n; i++) {
+        if (array[i] < min) {
+            min = array[i];
         }
-        else{
-            min=arr[j];
-            max=arr[j+1];
+        else if (array[i] > max) {
+            max = array[i];
         }
-       
-    }
-    if (min != max){
-    printf("the max in array is: %d",max);
-    printf("the min in array is: %d",min);
-    }
-    else 
-     printf("all are equal");
-  return 0;
+    } 
+    printf("Minimum value: %d\n", min);
+    printf("Maximum value: %d\n", max); 
+    return 0;
 }
 
